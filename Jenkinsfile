@@ -1,28 +1,22 @@
 #!/usr/bin/env groovy
 pipeline {
-     agent any
-     
-     stages {
-         stage ("compile") {
-             
-              steps {
-                  echo 'Compiling the first project..'
-             }
+    agent any
+    tools {
+        maven 'Maven 3.6.3'
+        jdk 'JAVA_HOME'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'maven clean'
+                //ABC indicates the folder name where the pom.xml file resides
+                bat ' mvn -f pom.xml clean install'  
+            }
+            post {
+                success {
+                    echo 'Now Archiving'
+                }
+            }
         }
-       
-          stage ('Testing') {
-         
-             steps {
-                 echo 'Testing the first project..'
-             }
-        }
-  
-       
-           stage ('Deploy') {
-               
-                steps {
-                   echo 'Deploying project..'
-               }
-          }        
-     }
+    }
 }

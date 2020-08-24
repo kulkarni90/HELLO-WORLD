@@ -2,7 +2,7 @@
 pipeline {
     agent any
     tools {
-            ant 'Ant 1.9.1' 
+            mvn 'Maven 3.6.3' 
             jdk 'JAVA 1.8'
     }
     stages {
@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo 'maven clean'
                 //ABC indicates the folder name where the pom.xml file resides
-                bat ' mvn -f build.xml clean install'  
+                bat ' mvn -f pom.xml clean install'  
                  }
           }
             post {

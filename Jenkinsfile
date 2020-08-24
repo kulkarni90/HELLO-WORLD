@@ -2,7 +2,7 @@
 pipeline {
     agent any
     tools {
-        def antVersion = 'Ant 1.9.1' 
+            ant 'Ant 1.9.1' 
             jdk 'JAVA 1.8'
     }
     stages {

@@ -15,7 +15,7 @@ pipeline {
           }
             post {
                 success {
-                    echo 'test webhook'
+                    echo 'webhook success'
                 }
             }
         }

@@ -15,7 +15,7 @@ pipeline {
           }
             post {
                 success {
-                    echo 'Now Archiving'
+                    echo 'test webhook'
                 }
             }
         }
